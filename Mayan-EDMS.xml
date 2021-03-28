@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>Mayan-EDMS</Name>
+  <Repository>mayanedms/mayanedms</Repository>
+  <Registry>https://hub.docker.com/r/mayanedms/mayanedms/</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support/>
+  <Project>https://github.com/mayan-edms/Mayan-EDMS</Project>
+  <Overview>Mayan EDMS is a Free Open Source document management system.</Overview>
+  <Category>Productivity: Status:Stable</Category>
+  <WebUI>http://[IP]:[PORT:8000]/</WebUI>
+  <TemplateURL>https://github.com/mschneider94/unraid-templates/blob/master/Mayan-EDMS.xml</TemplateURL>
+  <Icon>https://github.com/mschneider94/unraid-templates/raw/master/img/mayan-edms.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1616962862</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Description>Mayan EDMS is a Free Open Source document management system.</Description>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>8000</HostPort>
+        <ContainerPort>8000</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/Mayam-EDMS/</HostDir>
+      <ContainerDir>/var/lib/mayan</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/dev/shm/mayanedms/</HostDir>
+      <ContainerDir>/tmp</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/Mayan-EDMS/document_storage/</HostDir>
+      <ContainerDir>/var/lib/mayan/document_storage</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Value>redis://redis:6379/1</Value>
+      <Name>MAYAN_CELERY_BROKER_URL</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>redis://redis:6379/0</Value>
+      <Name>MAYAN_CELERY_RESULT_BACKEND</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>{'default':{'ENGINE':'django.db.backends.postgresql','NAME':'mayan','PASSWORD':'mayanuserpass','USER':'mayan','HOST':'postgres'}}</Value>
+      <Name>MAYAN_DATABASES</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Labels/>
+  <Config Name="Celery Broker" Target="MAYAN_CELERY_BROKER_URL" Default="redis://redis:6379/1" Mode="" Description="Container Variable: MAYAN_CELERY_BROKER_URL" Type="Variable" Display="always" Required="false" Mask="false">redis://redis:6379/1</Config>
+  <Config Name="Celery Result-Backend" Target="MAYAN_CELERY_RESULT_BACKEND" Default="redis://redis:6379/0" Mode="" Description="Container Variable: MAYAN_CELERY_RESULT_BACKEND" Type="Variable" Display="always" Required="false" Mask="false">redis://redis:6379/0</Config>
+  <Config Name="Data" Target="/var/lib/mayan" Default="/mnt/user/appdata/Mayam-EDMS/" Mode="rw" Description="Container Path: /var/lib/mayan" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/Mayam-EDMS/</Config>
+  <Config Name="HTTP Port" Target="8000" Default="80" Mode="tcp" Description="Container Port: 8000" Type="Port" Display="always" Required="false" Mask="false">8000</Config>
+  <Config Name="Temporary Files" Target="/tmp" Default="/dev/shm/mayanedms/" Mode="rw" Description="Container Path: /tmp" Type="Path" Display="always" Required="false" Mask="false">/dev/shm/mayanedms/</Config>
+  <Config Name="Document Storage" Target="/var/lib/mayan/document_storage" Default="/mnt/user/Mayan-EDMS/document_storage/" Mode="rw" Description="Container Path: /var/lib/mayan/document_storage" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/Mayan-EDMS/document_storage/</Config>
+  <Config Name="Databases" Target="MAYAN_DATABASES" Default="{'default':{'ENGINE':'django.db.backends.postgresql','NAME':'mayan','PASSWORD':'mayanuserpass','USER':'mayan','HOST':'172.17.0.1'}}" Mode="" Description="Container Variable: MAYAN_DATABASES" Type="Variable" Display="always" Required="false" Mask="false">{'default':{'ENGINE':'django.db.backends.postgresql','NAME':'mayan','PASSWORD':'mayanuserpass','USER':'mayan','HOST':'postgres'}}</Config>
+</Container>

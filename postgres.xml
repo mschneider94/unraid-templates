@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>postgres</Name>
+  <Repository>postgres:13</Repository>
+  <Registry>https://hub.docker.com/_/postgres/</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support/>
+  <Project>https://www.postgresql.org/</Project>
+  <Overview>PostgreSQL: The World's Most Advanced Open Source Relational Database</Overview>
+  <Category>Network:Other Status:Stable</Category>
+  <WebUI/>
+  <TemplateURL>https://github.com/mschneider94/unraid-templates/blob/master/postgres.xml</TemplateURL>
+  <Icon>https://github.com/mschneider94/unraid-templates/raw/master/img/postgres.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1616963723</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Description>PostgreSQL: The World's Most Advanced Open Source Relational Database</Description>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>5432</HostPort>
+        <ContainerPort>5432</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/postgres/</HostDir>
+      <ContainerDir>/var/lib/postgresql/data/</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Value></Value>
+      <Name>POSTGRES_PASSWORD</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Labels/>
+  <Config Name="Port" Target="5432" Default="5432" Mode="tcp" Description="Container Port: 5432" Type="Port" Display="always" Required="false" Mask="false">5432</Config>
+  <Config Name="Data" Target="/var/lib/postgresql/data/" Default="/mnt/user/appdata/postgres/" Mode="rw" Description="Container Path: /var/lib/postgresql/data/" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/postgres/</Config>
+  <Config Name="POSTGRES_PASSWORD" Target="POSTGRES_PASSWORD" Default="" Mode="" Description="Container Variable: POSTGRES_PASSWORD" Type="Variable" Display="always" Required="false" Mask="false"></Config>
+</Container>

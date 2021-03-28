@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>Percona-MySQL</Name>
+  <Repository>percona:8</Repository>
+  <Registry>https://hub.docker.com/_/percona/</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support/>
+  <Project>https://www.percona.com/software/mysql-database/percona-server</Project>
+  <Overview>Percona Server is a fork of the MySQL relational database management system created by Percona.&#xD;
+&#xD;
+When this container is started without any MySQL-Data present inside, a new root-password wil be randomly generated (using pwgen). The generated root password will be printed to stdout (GENERATED ROOT PASSWORD: .....).</Overview>
+  <Category>Network:Other Status:Stable</Category>
+  <WebUI/>
+  <TemplateURL>https://github.com/mschneider94/unraid-templates/blob/master/Percona-MySQL.xml</TemplateURL>
+  <Icon>https://github.com/mschneider94/unraid-templates/raw/master/img/percona-mysql.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1616964098</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Description>Percona Server is a fork of the MySQL relational database management system created by Percona.&#xD;
+&#xD;
+When this container is started without any MySQL-Data present inside, a new root-password wil be randomly generated (using pwgen). The generated root password will be printed to stdout (GENERATED ROOT PASSWORD: .....).</Description>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>3306</HostPort>
+        <ContainerPort>3306</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/percona/mysql_config/</HostDir>
+      <ContainerDir>/etc/my.cnf.d/docker.cnf.d/</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/percona/mysql_data/</HostDir>
+      <ContainerDir>/var/lib/mysql/</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/percona/mysql_log/</HostDir>
+      <ContainerDir>/var/log/mysql/</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Value>yes</Value>
+      <Name>MYSQL_RANDOM_ROOT_PASSWORD</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Labels/>
+  <Config Name="Port" Target="3306" Default="3306" Mode="tcp" Description="Container Port: 3306" Type="Port" Display="always" Required="true" Mask="false">3306</Config>
+  <Config Name="MySQL_Config" Target="/etc/my.cnf.d/docker.cnf.d/" Default="/mnt/user/appdata/percona/mysql_config" Mode="rw" Description="Folder for custom additions to MySQL-Configuration" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/percona/mysql_config/</Config>
+  <Config Name="MySQL_Data" Target="/var/lib/mysql/" Default="/mnt/user/appdata/percona/mysql_data/" Mode="rw" Description="Directory for MySQL-Data" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/percona/mysql_data/</Config>
+  <Config Name="MySQL_Log" Target="/var/log/mysql/" Default="/mnt/user/appdata/percona/mysql_log/" Mode="rw" Description="Directory for MySQL-Log" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/percona/mysql_log/</Config>
+  <Config Name="MYSQL_RANDOM_ROOT_PASSWORD" Target="MYSQL_RANDOM_ROOT_PASSWORD" Default="yes" Mode="" Description="Initialize Instance with random root-password, if no sufficient MySQL-Data is present" Type="Variable" Display="advanced" Required="true" Mask="false">yes</Config>
+</Container>
