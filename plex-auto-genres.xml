@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>plex-auto-genres</Name>
+  <Repository>shaneisrael/plex-auto-genres</Repository>
+  <Registry>https://hub.docker.com/r/shaneisrael/plex-auto-genres/</Registry>
+  <Network>host</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/ShaneIsrael/plex-auto-genres</Support>
+  <Project>https://github.com/ShaneIsrael/plex-auto-genres</Project>
+  <Overview>Automatically add genre collection tags to your Plex Media Server.</Overview>
+  <Category>Other:</Category>
+  <WebUI/>
+  <TemplateURL/>
+  <Icon>/plugins/dynamix.docker.manager/images/question.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1621068670</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Description>Automatically add genre collection tags to your Plex Media Server.</Description>
+  <Networking>
+    <Mode>host</Mode>
+    <Publish/>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/plex-auto-genres/config/</HostDir>
+      <ContainerDir>/config</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/plex-auto-genres/posters/</HostDir>
+      <ContainerDir>/posters</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/plex-auto-genres/logs/</HostDir>
+      <ContainerDir>/logs</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Value>xxx</Value>
+      <Name>PLEX_USERNAME</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>xxx</Value>
+      <Name>PLEX_PASSWORD</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>xxx</Value>
+      <Name>PLEX_SERVER_NAME</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>http://1.2.3.4:32400</Value>
+      <Name>PLEX_BASE_URL</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value/>
+      <Name>PLEX_TOKEN</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value/>
+      <Name>PLEX_COLLECTION_PREFIX</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value/>
+      <Name>TMDB_API_KEY</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Labels/>
+  <Config Name="PLEX_USERNAME" Target="PLEX_USERNAME" Default="xxx" Mode="" Description="Your Plex Username" Type="Variable" Display="always" Required="true" Mask="false">xxx</Config>
+  <Config Name="PLEX_PASSWORD" Target="PLEX_PASSWORD" Default="xxx" Mode="" Description="Your Plex Password" Type="Variable" Display="always" Required="true" Mask="true">xxx</Config>
+  <Config Name="PLEX_SERVER_NAME" Target="PLEX_SERVER_NAME" Default="xxx" Mode="" Description="Your Plex Server Name" Type="Variable" Display="always" Required="true" Mask="false">xxx</Config>
+  <Config Name="PLEX_BASE_URL" Target="PLEX_BASE_URL" Default="http://1.2.3.4:32400" Mode="" Description="Your Plex Server base URL" Type="Variable" Display="always" Required="true" Mask="false">http://1.2.3.4:32400</Config>
+  <Config Name="PLEX_TOKEN" Target="PLEX_TOKEN" Default="" Mode="" Description="Your Plex Token" Type="Variable" Display="always" Required="true" Mask="false"/>
+  <Config Name="PLEX_COLLECTION_PREFIX" Target="PLEX_COLLECTION_PREFIX" Default="" Mode="" Description="(Optional) Prefix for the created Plex collections. For example, with a value of " Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="TMDB_API_KEY" Target="TMDB_API_KEY" Default="" Mode="" Description="Your TMDB api key (not required for anime library tagging)" Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="appdata_config" Target="/config" Default="/mnt/user/appdata/plex-auto-genres/config/" Mode="rw" Description="Container Path: /config" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/plex-auto-genres/config/</Config>
+  <Config Name="appdata_posters" Target="/posters" Default="/mnt/user/appdata/plex-auto-genres/posters/" Mode="rw" Description="Container Path: /posters" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/plex-auto-genres/posters/</Config>
+  <Config Name="appdata_logs" Target="/logs" Default="/mnt/user/appdata/plex-auto-genres/logs/" Mode="rw" Description="Container Path: /logs" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/plex-auto-genres/logs/</Config>
+</Container>
